@@ -41,9 +41,9 @@ defaults:
 # Lugar de reflexión (giscus sobre GitHub Discussions).
 giscus:
   repo: "lorenzoriano8-png/grupo-de-investigacion-en-ecologia-juridica"
-  repo_id: ""
+  repo_id: "R_kgDOVvPveQ"
   category: "Lugar de reflexión"
-  category_id: ""
+  category_id: "DIC_kwDOVvPvec4DLL-0"
 
 exclude:
   - LEEME.md
