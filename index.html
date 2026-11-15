@@ -3,4 +3,5 @@ layout: default
 seccion: inicio
 ---
 <img class="rizoma" src="{{ '/assets/rizoma.svg' | relative_url }}" alt="Dibujo de un rizoma: tallos que se extienden en horizontal, se cruzan y echan raíces y brotes desde cada nudo.">
-<div class="perspectiva">{{ site.data.sitio.perspectiva | markdownify }}</div>
+{%- comment -%} Los pasajes entre corchetes se muestran como glosas. {%- endcomment -%}
+<div class="perspectiva">{{ site.data.sitio.perspectiva | markdownify | replace: "[", '<span class="glosa">[' | replace: "]", "]</span>" }}</div>
