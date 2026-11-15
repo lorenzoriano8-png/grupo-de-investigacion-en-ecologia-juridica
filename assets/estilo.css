@@ -1,7 +1,7 @@
 /* Estilo deliberadamente sobrio: una serif, blanco, sin adornos. */
 *{box-sizing:border-box}
 html,body{margin:0;background:#fff;color:#333}
-body{font-family:"Crimson Text",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.35;padding:46px 22px 80px}
+body{font-family:"Crimson Text",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.35;padding:46px 4vw 80px}
 a{color:#333;text-decoration:none}
 a:hover{text-decoration:underline;text-underline-offset:2px}
 
@@ -11,7 +11,7 @@ header{margin-bottom:64px}
 nav{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:15px}
 nav a.on{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.01em;line-height:22px}
 
-main{max-width:780px}
+main{max-width:none}
 .wide{max-width:1180px}
 .caps{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.01em}
 .meta{color:#777}
@@ -19,9 +19,11 @@ p{margin:0 0 .6em}
 em{font-style:italic}
 
 /* Perspectiva */
-.rizoma{display:block;width:100%;max-width:1180px;height:auto;margin:0 0 56px}
-.perspectiva{max-width:680px}
-.perspectiva p{margin-bottom:.9em}
+.rizoma{display:block;width:calc(100% + 8vw);max-width:none;height:auto;margin:-20px -4vw 48px}
+.perspectiva{max-width:none;font-size:clamp(18px,1.55vw,25px);line-height:1.45}
+.perspectiva p{margin-bottom:1em;text-align:justify;hyphens:auto}
+/* Líneas en cursiva del manifiesto: centradas y en azul, como en el original */
+.perspectiva p:has(> em:only-child){text-align:center;color:#156082}
 .footnotes{margin-top:2em;font-size:14.5px;color:#666}
 .footnotes ol{padding-left:18px;margin:0}
 .footnotes hr,hr.footnotes-sep{display:none}
@@ -54,4 +56,4 @@ sup a{font-size:12px}
 }
 
 /* Glosas: los pasajes entre corchetes del texto de perspectiva */
-.glosa{color:#8a8a8a}
+.glosa{color:#BF4E14}
