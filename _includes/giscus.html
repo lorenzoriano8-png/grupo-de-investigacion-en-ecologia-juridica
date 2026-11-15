@@ -1,0 +1,18 @@
+{%- if site.giscus.repo_id != "" and site.giscus.category_id != "" -%}
+<script src="https://giscus.app/client.js"
+  data-repo="{{ site.giscus.repo }}"
+  data-repo-id="{{ site.giscus.repo_id }}"
+  data-category="{{ site.giscus.category }}"
+  data-category-id="{{ site.giscus.category_id }}"
+  data-mapping="pathname"
+  data-strict="1"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="light"
+  data-lang="es"
+  crossorigin="anonymous"
+  async></script>
+{%- else -%}
+<p class="empty">Las intervenciones se activan cuando se conecte GitHub Discussions al sitio.</p>
+{%- endif -%}

@@ -1,0 +1,16 @@
+---
+layout: default
+title: Artículos
+seccion: articulos
+permalink: /articulos/
+---
+<div class="sec-head"><div><p class="kicker">Publicaciones</p><h1 class="sec">Artículos</h1>
+<p class="sec-intro">Trabajos de investigación de los integrantes del grupo, publicados o en preparación.</p></div></div>
+{% assign items = site.articulos | sort: "fecha", "last" | reverse %}
+{% for p in items %}
+<a class="index-row" href="{{ p.url | relative_url }}">
+  <div class="d">{% include fecha.html d=p.fecha corta=true %}</div>
+  <div><h2 class="t">{{ p.title }}</h2>{% if p.autores %}<p class="a">{{ p.autores }}</p>{% endif %}{% if p.resumen %}<div class="r">{{ p.resumen | markdownify }}</div>{% endif %}{% include etiquetas.html t=p.etiquetas %}</div>
+  <div class="arrow">→</div>
+</a>
+{% else %}<p class="empty">Todavía no hay artículos.</p>{% endfor %}

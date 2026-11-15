@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="reader">
+  <a class="back" href="{{ '/' | append: page.seccion | append: '/' | relative_url }}">← {% if page.seccion == "notas" %}Notas{% else %}Artículos{% endif %}</a>
+  <p class="kicker">{{ page.tipo }}</p>
+  <h1>{{ page.title }}</h1>
+  {% if page.autores %}<p class="byline">{{ page.autores }}</p>{% endif %}
+  <div class="meta">{% include fecha.html d=page.fecha %}{% if page.revista %} · {{ page.revista }}{% endif %}{% if page.enlace %} · <a href="{{ page.enlace }}">Versión completa ↗</a>{% endif %}{% if page.pdf %} · <a href="{{ page.pdf | relative_url }}">PDF ↓</a>{% endif %}</div>
+  {% if page.resumen %}<div class="abstract"><b>Resumen</b>{{ page.resumen | markdownify }}</div>{% endif %}
+  <div class="body">{{ content }}</div>
+  {% include etiquetas.html t=page.etiquetas %}
+</article>

@@ -1,0 +1,16 @@
+---
+layout: default
+title: Líneas de interés
+seccion: lineas
+permalink: /lineas/
+---
+{%- assign romanos = "I,II,III,IV,V,VI,VII,VIII,IX,X,XI,XII" | split: "," -%}
+<div class="sec-head"><div><p class="kicker">Agenda de investigación</p><h1 class="sec">Líneas de interés</h1>
+<p class="sec-intro">Los problemas en torno a los cuales se organiza el trabajo del grupo.</p></div></div>
+{% assign items = site.lineas | sort: "orden", "last" %}
+{% for l in items %}
+<div class="line"><div class="n">{{ romanos[forloop.index0] | default: forloop.index }}</div><div>
+  <h2>{{ l.title }}</h2>{{ l.content | markdownify }}
+  {% if l.preguntas and l.preguntas.size > 0 %}<ul>{% for q in l.preguntas %}<li>{{ q }}</li>{% endfor %}</ul>{% endif %}
+</div></div>
+{% else %}<p class="empty">Aún no se han definido líneas.</p>{% endfor %}

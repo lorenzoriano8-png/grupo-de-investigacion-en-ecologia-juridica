@@ -1,0 +1,16 @@
+---
+layout: default
+title: Discusiones
+seccion: discusiones
+permalink: /discusiones/
+---
+<div class="sec-head"><div><p class="kicker">Seminario permanente</p><h1 class="sec">Discusiones del grupo</h1>
+<p class="sec-intro">Preguntas que el grupo deja abiertas para trabajarlas en común. Para intervenir se inicia sesión con una cuenta de GitHub.</p></div></div>
+{% assign items = site.discusiones | sort: "fecha", "last" | reverse %}
+{% for x in items %}{% assign st = x.estado | default: "abierta" %}
+<a class="disc" href="{{ x.url | relative_url }}">
+  <div><h2 class="t">{{ x.title }}</h2><p class="r">{{ x.content | strip_html | truncatewords: 45 }}</p>
+  <div class="kicker muted">{{ x.autor }}{% if x.fecha %} · {% include fecha.html d=x.fecha corta=true %}{% endif %}</div></div>
+  <span class="state {{ st }}">{{ st }}</span>
+</a>
+{% else %}<p class="empty">Aún no se ha abierto ninguna discusión.</p>{% endfor %}

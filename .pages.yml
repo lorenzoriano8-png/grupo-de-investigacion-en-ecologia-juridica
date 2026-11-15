@@ -1,0 +1,122 @@
+# Panel de edición (Pages CMS: https://app.pagescms.org)
+media:
+  input: assets/archivos
+  output: /assets/archivos
+
+settings:
+  commit:
+    identity: user
+
+content:
+  - name: articulos
+    label: Artículos
+    type: collection
+    path: _articulos
+    filename: "{primary}.md"
+    view: { primary: title, fields: [title, autores, fecha], sort: fecha, order: desc }
+    fields:
+      - { name: title, label: Título, type: string, required: true }
+      - { name: autores, label: Autoría, type: string }
+      - { name: fecha, label: Fecha, type: date, required: true }
+      - { name: revista, label: "Revista o lugar de publicación", type: string }
+      - { name: enlace, label: "Enlace a la versión completa", type: string }
+      - { name: pdf, label: "PDF (opcional)", type: file }
+      - { name: resumen, label: Resumen, type: text }
+      - { name: etiquetas, label: "Palabras clave", type: string, list: true }
+      - { name: body, label: Texto, type: rich-text }
+
+  - name: notas
+    label: Notas
+    type: collection
+    path: _notas
+    filename: "{primary}.md"
+    view: { primary: title, fields: [title, autores, fecha], sort: fecha, order: desc }
+    fields:
+      - { name: title, label: Título, type: string, required: true }
+      - { name: autores, label: Autoría, type: string }
+      - { name: fecha, label: Fecha, type: date, required: true }
+      - { name: resumen, label: Resumen, type: text }
+      - { name: etiquetas, label: "Palabras clave", type: string, list: true }
+      - { name: body, label: Texto, type: rich-text }
+
+  - name: discusiones
+    label: Discusiones
+    type: collection
+    path: _discusiones
+    filename: "{primary}.md"
+    view: { primary: title, fields: [title, autor, estado, fecha], sort: fecha, order: desc }
+    fields:
+      - { name: title, label: "Pregunta o tema", type: string, required: true }
+      - { name: autor, label: "Propuesta por", type: string }
+      - { name: fecha, label: Fecha, type: date, required: true }
+      - name: estado
+        label: Estado
+        type: select
+        default: abierta
+        options:
+          values: [abierta, cerrada]
+      - { name: body, label: Planteamiento, type: rich-text }
+
+  - name: integrantes
+    label: Integrantes
+    type: collection
+    path: _integrantes
+    filename: "{primary}.md"
+    view: { primary: title, fields: [title, rol, orden], sort: orden, order: asc }
+    fields:
+      - { name: title, label: Nombre, type: string, required: true }
+      - { name: rol, label: "Rol en el grupo", type: string }
+      - { name: filiacion, label: Filiación, type: string }
+      - { name: foto, label: "Foto (opcional)", type: image }
+      - { name: intereses, label: Intereses, type: string, list: true }
+      - { name: perfil, label: "ORCID u otro perfil (URL)", type: string }
+      - { name: correo, label: Correo, type: string }
+      - { name: orden, label: "Orden en la lista", type: number }
+      - { name: body, label: "Nota biográfica", type: rich-text }
+
+  - name: lineas
+    label: Líneas de interés
+    type: collection
+    path: _lineas
+    filename: "{primary}.md"
+    view: { primary: title, fields: [title, orden], sort: orden, order: asc }
+    fields:
+      - { name: title, label: "Nombre de la línea", type: string, required: true }
+      - { name: orden, label: Orden, type: number }
+      - { name: preguntas, label: "Preguntas abiertas", type: string, list: true }
+      - { name: body, label: Descripción, type: rich-text }
+
+  - name: proyecto
+    label: Proyecto colectivo
+    type: file
+    path: _data/proyecto.yml
+    format: yaml
+    fields:
+      - { name: titulo, label: Título, type: string }
+      - { name: descripcion, label: Descripción, type: text }
+      - { name: preguntas, label: "Preguntas que lo orientan", type: string, list: true }
+      - name: fases
+        label: Fases
+        type: object
+        list: true
+        fields:
+          - { name: nombre, label: Nombre, type: string }
+          - name: estado
+            label: Estado
+            type: select
+            options:
+              values: [hecha, en curso, pendiente]
+          - { name: descripcion, label: Descripción, type: string }
+
+  - name: sitio
+    label: Datos del grupo
+    type: file
+    path: _data/sitio.yml
+    format: yaml
+    fields:
+      - { name: nombre, label: "Nombre del grupo", type: string }
+      - { name: sigla, label: "Sigla o código", type: string }
+      - { name: institucion, label: Institución, type: string }
+      - { name: lema, label: Lema, type: string }
+      - { name: contacto, label: Contacto, type: string }
+      - { name: presentacion, label: "Presentación (párrafos separados por una línea en blanco)", type: text }

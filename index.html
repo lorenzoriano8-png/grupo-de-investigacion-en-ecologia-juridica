@@ -1,0 +1,23 @@
+---
+layout: default
+seccion: inicio
+---
+{%- assign pubs = site.articulos | concat: site.notas | sort: "fecha", "last" | reverse -%}
+{%- assign abiertas = site.discusiones | where_exp: "d", "d.estado != 'cerrada'" | sort: "fecha", "last" | reverse -%}
+<div class="home">
+  <div>
+    <p class="kicker">Presentación</p>
+    <div class="prose">{{ site.data.sitio.presentacion | markdownify }}</div>
+  </div>
+  <aside class="side">
+    <div class="block"><h3>Publicaciones recientes</h3>
+      {% for p in pubs limit:5 %}<a class="mini" href="{{ p.url | relative_url }}"><div class="m">{{ p.tipo }} · {% include fecha.html d=p.fecha corta=true %}</div><div class="t">{{ p.title }}</div></a>
+      {% else %}<p class="empty">Aún no hay publicaciones.</p>{% endfor %}
+    </div>
+    <div class="block"><h3>Discusiones abiertas</h3>
+      {% for d in abiertas limit:4 %}<a class="mini" href="{{ d.url | relative_url }}"><div class="m">{{ d.autor }}{% if d.fecha %} · {% include fecha.html d=d.fecha corta=true %}{% endif %}</div><div class="t">{{ d.title }}</div></a>
+      {% else %}<p class="empty">No hay discusiones abiertas.</p>{% endfor %}
+    </div>
+    <div class="proj-card"><p class="kicker">Proyecto colectivo</p><h4>{{ site.data.proyecto.titulo }}</h4><a href="{{ '/proyecto/' | relative_url }}">Ver el proyecto →</a></div>
+  </aside>
+</div>

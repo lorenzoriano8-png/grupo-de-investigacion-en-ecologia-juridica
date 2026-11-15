@@ -1,0 +1,18 @@
+titulo: "[Título del proyecto colectivo]"
+descripcion: |
+  [Describa aquí el problema que el grupo se propone trabajar en común, el corpus o los casos que lo delimitan y lo que se espera producir al final.]
+
+  [Un segundo párrafo puede explicar cómo se reparte el trabajo entre los integrantes.]
+preguntas:
+  - "[Primera pregunta de investigación]"
+  - "[Segunda pregunta de investigación]"
+fases:
+  - nombre: Formulación
+    estado: en curso
+    descripcion: Delimitación del problema, del corpus y del método.
+  - nombre: Lectura y trabajo de campo
+    estado: pendiente
+    descripcion: "[Descripción breve]"
+  - nombre: Escritura colectiva
+    estado: pendiente
+    descripcion: "[Descripción breve]"
