@@ -6,6 +6,6 @@ permalink: /articulos/
 ---
 {% assign items = site.articulos | sort: "fecha", "last" | reverse %}
 {% for p in items %}
-<div class="item"><a href="{{ p.url | relative_url }}"><span class="caps">{{ p.title }}</span></a>{% if p.autores %}, {{ p.autores }}{% endif %}{% if p.revista and p.revista != "" %}. <em>{{ p.revista }}</em>{% endif %}{% if p.fecha %}, {{ p.fecha | date: "%Y" }}{% endif %}.
-{% if p.resumen %}<p>{{ p.resumen }}</p>{% endif %}</div>
+<div class="item"><a href="{{ p.url | relative_url }}"><span class="caps">{{ p.title }}</span></a>{% if p.autores and p.autores != "" %}, {{ p.autores }}{% endif %}{% if p.revista and p.revista != "" %}. <em>{{ p.revista }}</em>{% endif %}{% if p.fecha and p.fecha != "" %}, {{ p.fecha | date: "%Y" }}{% endif %}.
+{% if p.resumen and p.resumen != "" %}<p>{{ p.resumen }}</p>{% endif %}</div>
 {% else %}<p class="empty">Todavía no hay artículos.</p>{% endfor %}

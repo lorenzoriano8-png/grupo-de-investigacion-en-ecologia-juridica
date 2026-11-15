@@ -7,6 +7,6 @@ permalink: /reflexion/
 <p style="margin-bottom:2em">Preguntas que el grupo deja abiertas para pensarlas en común. Cualquiera puede intervenir iniciando sesión con una cuenta de GitHub.</p>
 {% assign items = site.discusiones | sort: "fecha", "last" | reverse %}
 {% for x in items %}{% assign st = x.estado | default: "abierta" %}
-<div class="item"><a href="{{ x.url | relative_url }}"><span class="caps">{{ x.title }}</span></a>{% if x.autor %}, {{ x.autor }}{% endif %}{% if x.fecha %}, {% include fecha.html d=x.fecha %}{% endif %}{% if st == "cerrada" %} <span class="meta">(cerrada)</span>{% endif %}.
+<div class="item"><a href="{{ x.url | relative_url }}"><span class="caps">{{ x.title }}</span></a>{% if x.autor and x.autor != "" %}, {{ x.autor }}{% endif %}{% if x.fecha and x.fecha != "" %}, {% include fecha.html d=x.fecha %}{% endif %}{% if st == "cerrada" %} <span class="meta">(cerrada)</span>{% endif %}.
 <p>{{ x.content | strip_html | truncatewords: 40 }}</p></div>
 {% else %}<p class="empty">Aún no hay reflexiones abiertas.</p>{% endfor %}

@@ -8,7 +8,7 @@ permalink: /trabaja-con-nosotros/
 {% assign abiertas = site.convocatorias | where_exp: "c", "c.estado != 'cerrada'" | sort: "cierre", "last" %}
 <div style="margin-top:2em">
 {% for c in abiertas %}
-<div class="item"><span class="caps">{{ c.title }}</span>{% if c.cierre %}. Cierra el {% include fecha.html d=c.cierre %}{% endif %}.
+<div class="item"><span class="caps">{{ c.title }}</span>{% if c.cierre and c.cierre != "" %}. Cierra el {% include fecha.html d=c.cierre %}{% endif %}.
 {{ c.content | markdownify }}{% if c.enlace and c.enlace != "" %}<p><a href="{{ c.enlace }}">Bases de la convocatoria</a></p>{% endif %}</div>
 {% else %}<p class="empty">En este momento no hay convocatorias abiertas.</p>{% endfor %}
 </div>

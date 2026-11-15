@@ -4,7 +4,7 @@ layout: default
 {%- assign st = page.estado | default: "abierta" -%}
 <article class="entrada">
   <h1>{{ page.title }}</h1>
-  <div class="meta">{% if page.autor %}{{ page.autor }} · {% endif %}{% include fecha.html d=page.fecha %}{% if st == "cerrada" %} · cerrada{% endif %}</div>
+  <div class="meta">{% if page.autor and page.autor != "" %}{{ page.autor }} · {% endif %}{% include fecha.html d=page.fecha %}{% if st == "cerrada" %} · cerrada{% endif %}</div>
   <div class="cuerpo">{{ content }}</div>
   <section class="hilo">{% include giscus.html %}</section>
   <a class="volver" href="{{ '/reflexion/' | relative_url }}">← volver</a>

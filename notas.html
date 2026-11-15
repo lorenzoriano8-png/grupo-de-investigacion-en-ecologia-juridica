@@ -6,6 +6,6 @@ permalink: /prensa/
 ---
 {% assign items = site.notas | sort: "fecha", "last" | reverse %}
 {% for p in items %}
-<div class="item"><a href="{{ p.url | relative_url }}"><span class="caps">{{ p.title }}</span></a>{% if p.medio and p.medio != "" %}, <em>{{ p.medio }}</em>{% endif %}{% if p.fecha %}, {% include fecha.html d=p.fecha %}{% endif %}.
-{% if p.resumen %}<p>{{ p.resumen }}</p>{% endif %}</div>
+<div class="item"><a href="{{ p.url | relative_url }}"><span class="caps">{{ p.title }}</span></a>{% if p.medio and p.medio != "" %}, <em>{{ p.medio }}</em>{% endif %}{% if p.fecha and p.fecha != "" %}, {% include fecha.html d=p.fecha %}{% endif %}.
+{% if p.resumen and p.resumen != "" %}<p>{{ p.resumen }}</p>{% endif %}</div>
 {% else %}<p class="empty">Todavía no hay notas de prensa.</p>{% endfor %}

@@ -7,9 +7,10 @@ permalink: /miembros/
 {% assign items = site.integrantes | sort: "orden", "last" %}
 {% for m in items %}
 <div class="miembro">
-  {% if m.foto %}<img src="{{ m.foto | relative_url }}" alt="{{ m.title }}">{% endif %}
-  <span class="caps">{{ m.title }}</span>{% if m.rol %}, {{ m.rol }}{% endif %}{% if m.filiacion %}. {{ m.filiacion }}{% endif %}.
+  {% if m.foto and m.foto != "" %}<img src="{{ m.foto | relative_url }}" alt="{{ m.title }}">{% endif %}
+  <span class="caps">{{ m.title }}</span>{% if m.rol and m.rol != "" %}, {{ m.rol }}{% endif %}{% if m.filiacion and m.filiacion != "" %}. {{ m.filiacion }}{% endif %}.
   {{ m.content | markdownify }}
-  {% if m.perfil or m.correo %}<p class="meta">{% if m.perfil %}<a href="{{ m.perfil }}">perfil</a>{% endif %}{% if m.perfil and m.correo %} · {% endif %}{{ m.correo }}</p>{% endif %}
+  {%- assign tp = m.perfil | default: "" | strip -%}{%- assign tc = m.correo | default: "" | strip -%}
+  {% if tp != "" or tc != "" %}<p class="meta">{% if tp != "" %}<a href="{{ tp }}">perfil</a>{% endif %}{% if tp != "" and tc != "" %} · {% endif %}{{ tc }}</p>{% endif %}
 </div>
 {% else %}<p class="empty">Aún no hay miembros registrados.</p>{% endfor %}

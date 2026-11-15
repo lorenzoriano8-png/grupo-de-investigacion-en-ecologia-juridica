@@ -3,8 +3,8 @@ layout: default
 ---
 <article class="entrada">
   <h1>{{ page.title }}</h1>
-  <div class="meta">{% if page.autores %}{{ page.autores }} · {% endif %}{% if page.medio and page.medio != "" %}<em>{{ page.medio }}</em> · {% endif %}{% if page.revista and page.revista != "" %}<em>{{ page.revista }}</em> · {% endif %}{% include fecha.html d=page.fecha %}{% if page.enlace and page.enlace != "" %} · <a href="{{ page.enlace }}">versión original</a>{% endif %}{% if page.pdf %} · <a href="{{ page.pdf | relative_url }}">pdf</a>{% endif %}</div>
-  {% if page.resumen %}<p class="resumen">{{ page.resumen }}</p>{% endif %}
+  <div class="meta">{% if page.autores and page.autores != "" %}{{ page.autores }} · {% endif %}{% if page.medio and page.medio != "" %}<em>{{ page.medio }}</em> · {% endif %}{% if page.revista and page.revista != "" %}<em>{{ page.revista }}</em> · {% endif %}{% include fecha.html d=page.fecha %}{% if page.enlace and page.enlace != "" %} · <a href="{{ page.enlace }}">versión original</a>{% endif %}{% if page.pdf and page.pdf != "" %} · <a href="{{ page.pdf | relative_url }}">pdf</a>{% endif %}</div>
+  {% if page.resumen and page.resumen != "" %}<p class="resumen">{{ page.resumen }}</p>{% endif %}
   <div class="cuerpo">{{ content }}</div>
   <a class="volver" href="{{ '/' | append: page.seccion | append: '/' | relative_url }}">← volver</a>
 </article>
