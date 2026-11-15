@@ -1,0 +1,11 @@
+---
+layout: default
+title: Contacto
+seccion: contacto
+permalink: /contacto/
+---
+{%- assign c = site.data.sitio.contacto -%}
+<p>{{ c.texto }}</p>
+<p style="margin-top:1.4em"><span class="caps">Correo</span> {{ c.correo }}</p>
+{% if c.direccion and c.direccion != "" %}<p><span class="caps">Dirección</span> {{ c.direccion }}{% if site.data.sitio.institucion != "" %}, {{ site.data.sitio.institucion }}{% endif %}</p>{% endif %}
+{% if c.telefono and c.telefono != "" %}<p><span class="caps">Teléfono</span> {{ c.telefono }}</p>{% endif %}

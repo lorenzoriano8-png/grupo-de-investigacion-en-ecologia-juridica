@@ -1,15 +1,11 @@
 ---
 layout: default
-title: Notas
-seccion: notas
-permalink: /notas/
+title: Notas de prensa
+seccion: prensa
+permalink: /prensa/
 ---
-<div class="sec-head"><div><p class="kicker">Escritos breves</p><h1 class="sec">Notas</h1>
-<p class="sec-intro">Comentarios, reseñas, apuntes de lectura y avances de investigación.</p></div></div>
 {% assign items = site.notas | sort: "fecha", "last" | reverse %}
-{% if items.size > 0 %}<div class="notes-grid">
-{% for p in items %}<a class="note" href="{{ p.url | relative_url }}">
-  <div class="kicker muted">{% include fecha.html d=p.fecha corta=true %}{% if p.autores %} · {{ p.autores }}{% endif %}</div>
-  <h2 class="t">{{ p.title }}</h2>{% if p.resumen %}<div class="r">{{ p.resumen | markdownify }}</div>{% endif %}
-</a>{% endfor %}
-</div>{% else %}<p class="empty">Todavía no hay notas.</p>{% endif %}
+{% for p in items %}
+<div class="item"><a href="{{ p.url | relative_url }}"><span class="caps">{{ p.title }}</span></a>{% if p.medio and p.medio != "" %}, <em>{{ p.medio }}</em>{% endif %}{% if p.fecha %}, {% include fecha.html d=p.fecha %}{% endif %}.
+{% if p.resumen %}<p>{{ p.resumen }}</p>{% endif %}</div>
+{% else %}<p class="empty">Todavía no hay notas de prensa.</p>{% endfor %}

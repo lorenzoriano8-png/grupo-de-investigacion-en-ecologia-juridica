@@ -3,36 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.title %}{{ page.title | strip_html }} · {% endif %}{{ site.data.sitio.nombre }}</title>
-<meta name="description" content="{{ page.resumen | default: site.data.sitio.lema | strip_html | strip_newlines | truncate: 160 }}">
+<title>{% if page.title %}{{ page.title | strip_html }} | {% endif %}{{ site.data.sitio.nombre }}</title>
+<meta name="description" content="{{ page.resumen | default: 'Grupo de investigación en ecología jurídica' | strip_html | strip_newlines | truncate: 160 }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/estilo.css' | relative_url }}">
 </head>
 <body>
-{%- assign s = site.data.sitio -%}
-<header class="mast">
-  <div class="wrap">
-    <div class="mast-top"><span>{{ s.institucion }}</span><span>{{ s.sigla }}</span></div>
-    {%- assign partes = s.nombre | split: "Ecología Jurídica" -%}
-    <a class="mast-link" href="{{ '/' | relative_url }}"><p class="mast-title">{% if s.nombre contains "Ecología Jurídica" %}{{ partes[0] }}<em>Ecología Jurídica</em>{{ partes[1] }}{% else %}{{ s.nombre }}{% endif %}</p></a>
-    {% if s.lema != "" %}<p class="lema">{{ s.lema }}</p>{% endif %}
-    <nav class="main">
-      {%- assign sec = page.seccion | default: "inicio" -%}
-      <a href="{{ '/' | relative_url }}" {% if sec == "inicio" %}class="on"{% endif %}>Inicio</a>
-      <a href="{{ '/articulos/' | relative_url }}" {% if sec == "articulos" %}class="on"{% endif %}>Artículos</a>
-      <a href="{{ '/notas/' | relative_url }}" {% if sec == "notas" %}class="on"{% endif %}>Notas</a>
-      <a href="{{ '/discusiones/' | relative_url }}" {% if sec == "discusiones" %}class="on"{% endif %}>Discusiones</a>
-      <a href="{{ '/proyecto/' | relative_url }}" {% if sec == "proyecto" %}class="on"{% endif %}>Proyecto colectivo</a>
-      <a href="{{ '/lineas/' | relative_url }}" {% if sec == "lineas" %}class="on"{% endif %}>Líneas de interés</a>
-      <a href="{{ '/integrantes/' | relative_url }}" {% if sec == "integrantes" %}class="on"{% endif %}>Integrantes</a>
-    </nav>
-  </div>
+{%- assign sec = page.seccion | default: "inicio" -%}
+<header>
+  <a class="brand" href="{{ '/' | relative_url }}">{{ site.data.sitio.nombre | downcase }}</a>
+  <nav>
+    <a href="{{ '/' | relative_url }}" {% if sec == "inicio" %}class="on"{% endif %}>perspectiva</a>
+    <a href="{{ '/articulos/' | relative_url }}" {% if sec == "articulos" %}class="on"{% endif %}>artículos</a>
+    <a href="{{ '/prensa/' | relative_url }}" {% if sec == "prensa" %}class="on"{% endif %}>notas de prensa</a>
+    <a href="{{ '/reflexion/' | relative_url }}" {% if sec == "reflexion" %}class="on"{% endif %}>lugar de reflexión</a>
+    <a href="{{ '/miembros/' | relative_url }}" {% if sec == "miembros" %}class="on"{% endif %}>miembros</a>
+    <a href="{{ '/contacto/' | relative_url }}" {% if sec == "contacto" %}class="on"{% endif %}>contacto</a>
+    <a href="{{ '/trabaja-con-nosotros/' | relative_url }}" {% if sec == "trabaja" %}class="on"{% endif %}>trabaja con nosotros</a>
+  </nav>
 </header>
-<main><div class="wrap">
+<main>
 {{ content }}
-</div></main>
-<footer><div class="wrap"><span>{{ s.nombre }}{% if s.institucion != "" %} · {{ s.institucion }}{% endif %}</span><span>{{ s.contacto }}</span></div></footer>
+</main>
 </body>
 </html>

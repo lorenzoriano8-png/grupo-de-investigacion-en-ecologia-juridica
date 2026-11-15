@@ -1,7 +1,6 @@
 # Configuración del sitio del Grupo de Investigación en Ecología Jurídica
 #
-# baseurl: si el repositorio se llama "ecologia-juridica", el sitio queda en
-#   https://USUARIO.github.io/ecologia-juridica  y baseurl debe ser "/ecologia-juridica".
+# baseurl es el nombre del repositorio precedido de "/".
 # Si algún día se le pone un dominio propio, baseurl se deja vacío: "".
 baseurl: "/grupo-de-investigacion-en-ecologia-juridica"
 url: ""
@@ -12,35 +11,38 @@ kramdown:
   input: GFM
   smart_quotes: ["lsquo", "rsquo", "laquo", "raquo"]
 
+# Las carpetas conservan sus nombres originales:
+#   _notas        -> notas de prensa
+#   _discusiones  -> lugar de reflexión
+#   _integrantes  -> miembros
 collections:
   articulos:
     output: true
     permalink: /articulos/:name/
   notas:
     output: true
-    permalink: /notas/:name/
+    permalink: /prensa/:name/
   discusiones:
     output: true
-    permalink: /discusiones/:name/
+    permalink: /reflexion/:name/
   integrantes:
     output: false
-  lineas:
+  convocatorias:
     output: false
 
 defaults:
   - scope: { type: articulos }
-    values: { layout: publicacion, tipo: Artículo, seccion: articulos }
+    values: { layout: publicacion, seccion: articulos }
   - scope: { type: notas }
-    values: { layout: publicacion, tipo: Nota, seccion: notas }
+    values: { layout: publicacion, seccion: prensa }
   - scope: { type: discusiones }
-    values: { layout: discusion, seccion: discusiones }
+    values: { layout: discusion, seccion: reflexion }
 
-# Discusiones (giscus). Se llena cuando el repositorio ya exista; ver LEEME.md, paso 4.
-# Mientras repo_id esté vacío, las páginas de discusión muestran solo el planteamiento.
+# Lugar de reflexión (giscus sobre GitHub Discussions).
 giscus:
-  repo: ""          # p. ej. "usuario/ecologia-juridica"
+  repo: "lorenzoriano8-png/grupo-de-investigacion-en-ecologia-juridica"
   repo_id: ""
-  category: "Discusiones del grupo"
+  category: "Lugar de reflexión"
   category_id: ""
 
 exclude:

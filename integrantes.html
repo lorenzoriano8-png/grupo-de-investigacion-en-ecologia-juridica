@@ -1,20 +1,15 @@
 ---
 layout: default
-title: Integrantes
-seccion: integrantes
-permalink: /integrantes/
+title: Miembros
+seccion: miembros
+permalink: /miembros/
 ---
-<div class="sec-head"><div><p class="kicker">Quiénes somos</p><h1 class="sec">Integrantes</h1></div></div>
 {% assign items = site.integrantes | sort: "orden", "last" %}
-{% if items.size > 0 %}<div class="members">
 {% for m in items %}
-<div class="member">
-  {% if m.foto %}<img class="mono" src="{{ m.foto | relative_url }}" alt="{{ m.title }}">{% else %}
-  {%- assign w = m.title | split: " " -%}<div class="mono">{{ w[0] | slice: 0 }}{% if w.size > 1 %}{{ w[1] | slice: 0 }}{% endif %}</div>{% endif %}
-  <h2>{{ m.title }}</h2>
-  {% if m.rol %}<div class="rol">{{ m.rol }}</div>{% endif %}{% if m.filiacion %}<div class="fil">{{ m.filiacion }}</div>{% endif %}
+<div class="miembro">
+  {% if m.foto %}<img src="{{ m.foto | relative_url }}" alt="{{ m.title }}">{% endif %}
+  <span class="caps">{{ m.title }}</span>{% if m.rol %}, {{ m.rol }}{% endif %}{% if m.filiacion %}. {{ m.filiacion }}{% endif %}.
   {{ m.content | markdownify }}
-  {% include etiquetas.html t=m.intereses %}
-  <div class="links">{% if m.perfil %}<a href="{{ m.perfil }}">Perfil ↗</a>{% endif %}{% if m.correo %} <span class="muted">{{ m.correo }}</span>{% endif %}</div>
+  {% if m.perfil or m.correo %}<p class="meta">{% if m.perfil %}<a href="{{ m.perfil }}">perfil</a>{% endif %}{% if m.perfil and m.correo %} · {% endif %}{{ m.correo }}</p>{% endif %}
 </div>
-{% endfor %}</div>{% else %}<p class="empty">Aún no hay integrantes registrados.</p>{% endif %}
+{% else %}<p class="empty">Aún no hay miembros registrados.</p>{% endfor %}

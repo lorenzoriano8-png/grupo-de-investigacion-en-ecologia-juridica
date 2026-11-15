@@ -1,11 +1,20 @@
 nombre: Grupo de Investigación en Ecología Jurídica
-sigla: ""
 institucion: "[Institución]"
-lema: El derecho visto desde el medio en que vive.
-contacto: "[correo de contacto]"
-presentacion: |
-  El grupo parte de una sospecha compartida: que el derecho no se deja entender del todo si se lo mira como un sistema de normas cerrado sobre sí mismo. Sus categorías y sus instituciones existen en un medio del que dependen y que, a su vez, transforman. Ese medio es social y económico, técnico y también natural, y las relaciones que lo atraviesan son el objeto común de nuestro trabajo.
 
-  Este sitio recoge lo que el grupo produce: los artículos de sus integrantes, las notas breves que acompañan las lecturas, las discusiones que dejamos abiertas en el seminario y el proyecto colectivo que las reúne.
+perspectiva: |
+  El grupo toma su punto de partida de una imagen que Gilles Deleuze y Félix Guattari pusieron a la entrada de *Mil mesetas*: la del rizoma. El árbol crece desde una raíz y reparte su orden a partir de un eje; el rizoma, en cambio, es un tallo subterráneo que se extiende en todas las direcciones, sin centro y sin comienzo, en el que «cualquier punto del rizoma puede ser conectado con cualquier otro».[^1]
 
-  [Borrador de presentación. Reemplácelo desde el panel de edición.]
+  La teoría del derecho ha pensado casi siempre con el árbol. La pirámide de las normas, la cadena de validez que remonta hasta un fundamento y la jerarquía de las fuentes son imágenes arborescentes, en las que cada norma vale por su relación con la que está encima. Lo que esa imagen deja por fuera es buena parte de lo que el derecho hace cuando funciona: los contratos que nadie lleva ante un juez, los usos de un río, las reglas de una plaza de mercado, los expedientes que circulan entre oficinas, los cuerpos y los territorios sobre los que las normas recaen y de los que vuelven transformadas. Una ecología jurídica estudia esas conexiones, que no respetan jerarquías y en las que lo jurídico se mezcla con lo que no lo es.
+
+  El grupo no se organiza, por eso, alrededor de una línea única ni de una sola disciplina. Quienes lo integran trabajan desde lugares distintos y se encuentran aquí sin que ninguno ocupe el centro. Los artículos, las notas y las reflexiones de este sitio pueden leerse en cualquier orden, y cada uno remite a los demás.
+
+  [^1]: Gilles Deleuze y Félix Guattari, *Mil mesetas. Capitalismo y esquizofrenia*, trad. José Vázquez Pérez, Pre-Textos, 2002, p. 13.
+
+contacto:
+  correo: "[correo del grupo]"
+  direccion: "[Dirección]"
+  telefono: ""
+  texto: "Para preguntas sobre el trabajo del grupo, propuestas de colaboración o solicitudes de prensa, escríbanos."
+
+trabaja: |
+  El grupo recibe a investigadores, estudiantes de posgrado y de pregrado que quieran trabajar en las preguntas que nos ocupan. Cuando hay convocatorias abiertas aparecen abajo; fuera de ellas, puede escribirnos con una breve presentación y una idea de lo que le gustaría hacer.

@@ -1,13 +1,10 @@
 ---
 layout: default
 ---
-<article class="reader">
-  <a class="back" href="{{ '/' | append: page.seccion | append: '/' | relative_url }}">← {% if page.seccion == "notas" %}Notas{% else %}Artículos{% endif %}</a>
-  <p class="kicker">{{ page.tipo }}</p>
+<article class="entrada">
   <h1>{{ page.title }}</h1>
-  {% if page.autores %}<p class="byline">{{ page.autores }}</p>{% endif %}
-  <div class="meta">{% include fecha.html d=page.fecha %}{% if page.revista %} · {{ page.revista }}{% endif %}{% if page.enlace %} · <a href="{{ page.enlace }}">Versión completa ↗</a>{% endif %}{% if page.pdf %} · <a href="{{ page.pdf | relative_url }}">PDF ↓</a>{% endif %}</div>
-  {% if page.resumen %}<div class="abstract"><b>Resumen</b>{{ page.resumen | markdownify }}</div>{% endif %}
-  <div class="body">{{ content }}</div>
-  {% include etiquetas.html t=page.etiquetas %}
+  <div class="meta">{% if page.autores %}{{ page.autores }} · {% endif %}{% if page.medio and page.medio != "" %}<em>{{ page.medio }}</em> · {% endif %}{% if page.revista and page.revista != "" %}<em>{{ page.revista }}</em> · {% endif %}{% include fecha.html d=page.fecha %}{% if page.enlace and page.enlace != "" %} · <a href="{{ page.enlace }}">versión original</a>{% endif %}{% if page.pdf %} · <a href="{{ page.pdf | relative_url }}">pdf</a>{% endif %}</div>
+  {% if page.resumen %}<p class="resumen">{{ page.resumen }}</p>{% endif %}
+  <div class="cuerpo">{{ content }}</div>
+  <a class="volver" href="{{ '/' | append: page.seccion | append: '/' | relative_url }}">← volver</a>
 </article>

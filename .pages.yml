@@ -22,25 +22,24 @@ content:
       - { name: enlace, label: "Enlace a la versión completa", type: string }
       - { name: pdf, label: "PDF (opcional)", type: file }
       - { name: resumen, label: Resumen, type: text }
-      - { name: etiquetas, label: "Palabras clave", type: string, list: true }
       - { name: body, label: Texto, type: rich-text }
 
-  - name: notas
-    label: Notas
+  - name: prensa
+    label: Notas de prensa
     type: collection
     path: _notas
     filename: "{primary}.md"
-    view: { primary: title, fields: [title, autores, fecha], sort: fecha, order: desc }
+    view: { primary: title, fields: [title, medio, fecha], sort: fecha, order: desc }
     fields:
-      - { name: title, label: Título, type: string, required: true }
-      - { name: autores, label: Autoría, type: string }
+      - { name: title, label: Titular, type: string, required: true }
+      - { name: medio, label: Medio, type: string }
       - { name: fecha, label: Fecha, type: date, required: true }
+      - { name: enlace, label: "Enlace a la nota original", type: string }
       - { name: resumen, label: Resumen, type: text }
-      - { name: etiquetas, label: "Palabras clave", type: string, list: true }
       - { name: body, label: Texto, type: rich-text }
 
-  - name: discusiones
-    label: Discusiones
+  - name: reflexion
+    label: Lugar de reflexión
     type: collection
     path: _discusiones
     filename: "{primary}.md"
@@ -57,8 +56,8 @@ content:
           values: [abierta, cerrada]
       - { name: body, label: Planteamiento, type: rich-text }
 
-  - name: integrantes
-    label: Integrantes
+  - name: miembros
+    label: Miembros
     type: collection
     path: _integrantes
     filename: "{primary}.md"
@@ -68,55 +67,44 @@ content:
       - { name: rol, label: "Rol en el grupo", type: string }
       - { name: filiacion, label: Filiación, type: string }
       - { name: foto, label: "Foto (opcional)", type: image }
-      - { name: intereses, label: Intereses, type: string, list: true }
       - { name: perfil, label: "ORCID u otro perfil (URL)", type: string }
       - { name: correo, label: Correo, type: string }
       - { name: orden, label: "Orden en la lista", type: number }
       - { name: body, label: "Nota biográfica", type: rich-text }
 
-  - name: lineas
-    label: Líneas de interés
+  - name: convocatorias
+    label: Convocatorias (trabaja con nosotros)
     type: collection
-    path: _lineas
+    path: _convocatorias
     filename: "{primary}.md"
-    view: { primary: title, fields: [title, orden], sort: orden, order: asc }
+    view: { primary: title, fields: [title, estado, cierre], sort: cierre, order: desc }
     fields:
-      - { name: title, label: "Nombre de la línea", type: string, required: true }
-      - { name: orden, label: Orden, type: number }
-      - { name: preguntas, label: "Preguntas abiertas", type: string, list: true }
+      - { name: title, label: Cargo o convocatoria, type: string, required: true }
+      - name: estado
+        label: Estado
+        type: select
+        default: abierta
+        options:
+          values: [abierta, cerrada]
+      - { name: cierre, label: "Fecha de cierre", type: date }
+      - { name: enlace, label: "Enlace a las bases (opcional)", type: string }
       - { name: body, label: Descripción, type: rich-text }
 
-  - name: proyecto
-    label: Proyecto colectivo
-    type: file
-    path: _data/proyecto.yml
-    format: yaml
-    fields:
-      - { name: titulo, label: Título, type: string }
-      - { name: descripcion, label: Descripción, type: text }
-      - { name: preguntas, label: "Preguntas que lo orientan", type: string, list: true }
-      - name: fases
-        label: Fases
-        type: object
-        list: true
-        fields:
-          - { name: nombre, label: Nombre, type: string }
-          - name: estado
-            label: Estado
-            type: select
-            options:
-              values: [hecha, en curso, pendiente]
-          - { name: descripcion, label: Descripción, type: string }
-
   - name: sitio
-    label: Datos del grupo
+    label: Perspectiva, contacto y textos fijos
     type: file
     path: _data/sitio.yml
     format: yaml
     fields:
       - { name: nombre, label: "Nombre del grupo", type: string }
-      - { name: sigla, label: "Sigla o código", type: string }
       - { name: institucion, label: Institución, type: string }
-      - { name: lema, label: Lema, type: string }
-      - { name: contacto, label: Contacto, type: string }
-      - { name: presentacion, label: "Presentación (párrafos separados por una línea en blanco)", type: text }
+      - { name: perspectiva, label: "Perspectiva (párrafos separados por una línea en blanco)", type: text }
+      - name: contacto
+        label: Contacto
+        type: object
+        fields:
+          - { name: correo, label: Correo, type: string }
+          - { name: direccion, label: Dirección, type: string }
+          - { name: telefono, label: Teléfono, type: string }
+          - { name: texto, label: "Texto de la página de contacto", type: text }
+      - { name: trabaja, label: "Texto de «Trabaja con nosotros»", type: text }
