@@ -19,7 +19,7 @@ p{margin:0 0 .6em}
 em{font-style:italic}
 
 /* Perspectiva */
-.rizoma{display:block;width:calc(100% + 8vw);max-width:none;height:auto;margin:-20px -4vw 48px}
+.rizoma{display:block;width:calc(100% + 8vw);max-width:none;height:auto;min-height:340px;object-fit:cover;object-position:center;margin:-20px -4vw 48px}
 .perspectiva{max-width:none;font-size:clamp(18px,1.55vw,25px);line-height:1.45}
 .perspectiva p{margin-bottom:1em;text-align:justify;hyphens:auto}
 /* Líneas en cursiva del manifiesto: centradas y en azul, como en el original */
